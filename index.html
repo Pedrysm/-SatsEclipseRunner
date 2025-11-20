@@ -1,14 +1,55 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-    <title>Telegram Mini App</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Sats Eclipse Runner</title>
+
+    <!-- Telegram WebApp SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- Estilos base -->
+    <style>
+      body {
+        margin: 0;
+        background: linear-gradient(#000428, #004e92);
+        font-family: sans-serif;
+        color: #00ffcc;
+        text-align: center;
+      }
+      #loading {
+        margin-top: 40vh;
+        font-size: 20px;
+        color: #ffff00;
+      }
+    </style>
+    <script type="module" crossorigin src="/SatsEclipseRunner/assets/index-DAS8p1od.js"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script src="/src/index.tsx" type="module"></script>
+
+    <div id="loading">Cargando Sats Eclipse Runner...</div>
+    <div id="root" style="display: none;"></div>
+
+    <!-- Script de tu app (solo válido en desarrollo) -->
+
+    <!-- Mostrar canvas cuando esté listo -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const root = document.getElementById('root');
+        const loading = document.getElementById('loading');
+        if (root && loading) {
+          loading.style.display = 'none';
+          root.style.display = 'block';
+        }
+
+        // Telegram WebApp init
+        if (window.Telegram && window.Telegram.WebApp) {
+          window.Telegram.WebApp.ready();
+          window.Telegram.WebApp.expand();
+        }
+      });
+    </script>
   </body>
 </html>
