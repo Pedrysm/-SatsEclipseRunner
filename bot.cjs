@@ -11,7 +11,7 @@ bot.onText(/\/start/, (msg) => {
     reply_markup: {
       inline_keyboard: [[{
         text: "🎮 Jugar ahora",
-        web_app: { url: "https://pedrysm.github.io/SatsEclipseRunner/" }
+        web_app: { url: "https://pedrysm.github.io/SatsEclipseBot/" }
       }]]
     }
   });
